@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./flip.css">
+</head>
+
+<body>
+  <div class='container'>
+
+    <div class='flip_box'>
+
+      <div class='front'>
+        <p class='f_title'>Property insurance</p>
+        <p class='f_subline'>Pack</p>
+        <h1 class='f_headline'>Absolute safety</h1>
+      </div>
+
+      <div class='back'>
+        <h1 class='b_headline'>Absolute safety</h1>
+        <p class='b_text'>Comprehensive insurance of apartments<br />including structural elements, decoration,<br />
+          equipment, property and responsibility<br />to neighbors in the expanded package<br />insurance risks</p>
+        <button class='b_button'><span>Buy now</span></button>
+      </div>
+
+    </div>
+
+    <div class='r_wrap'>
+
+      <div class='b_round'></div>
+      <div class='s_round'>
+        <div class='s_arrow'></div>
+      </div>
+    </div>
+
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      const sRound = document.querySelector('.s_round');
+      const bRound = document.querySelector('.b_round');
+      const flipBox = document.querySelector('.flip_box');
+      const sArrow = document.querySelector('.s_arrow');
+
+      // Hover Event
+      sRound.addEventListener('mouseenter', function () {
+        bRound.classList.add('b_round_hover');
+      });
+
+      sRound.addEventListener('mouseleave', function () {
+        bRound.classList.remove('b_round_hover');
+      });
+
+      // Click Event
+      sRound.addEventListener('click', function () {
+        flipBox.classList.toggle('flipped');
+        sRound.classList.add('s_round_click');
+        sArrow.classList.toggle('s_arrow_rotate');
+        bRound.classList.toggle('b_round_back_hover');
+      });
+
+      // Transition End Event
+      sRound.addEventListener('transitionend', function () {
+        sRound.classList.remove('s_round_click');
+        sRound.classList.add('s_round_back');
+      });
+
+    });
+
+  </script>
+</body>
+
+</html>
